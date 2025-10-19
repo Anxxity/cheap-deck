@@ -65,4 +65,4 @@ A Python script running on the computer reads these serial messages and executes
 This project is licensed under the MIT License.
 You are free to use, modify, and distribute it with attribution.
 
-https://photos.app.goo.gl/X65AWRY7iBFcrKz69
+
