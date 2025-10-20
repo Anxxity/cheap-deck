@@ -4,7 +4,7 @@
 #include <avr/pgmspace.h>
 
 // Color definitions
-#define BLACK   0xA9A9A9
+#define BLACK   0x0000
 #define RED     0xF800
 #define GREEN   0x07E0
 #define BLUE    0x001F
@@ -34,7 +34,6 @@ struct Button {
   bool pressed;
 };
 
-// Stream Deck Style 3x3 buttons
 Button buttons[] = {
   {0, 0, 80, 60, "PLAY",   GREEN, false},
   {0, 0, 80, 60, "PAUSE",  RED,   false},
@@ -47,24 +46,19 @@ Button buttons[] = {
 };
 
 Button backButton = {10, 10, 100, 50, "HOME", RED, false};
-Button sliderMenuHomeButton = {10, 70, 100, 50, "switch", YELLOW, false};
-
 
 struct Slider {
   int x, y, w, h;
   int value;
   int thumbY;
-  String label;  // <-- Add label here
 };
-
 
 Slider sliders[] = {
-  {0, 10, 20, 200, 0, 0, ""},
-  {0, 10, 20, 200, 0, 0, "bra"},
-  {0, 10, 20, 200, 0, 0, "dis"},
-  {0, 10, 20, 200, 0, 0, "sys"} // fourth slider empty label if not needed
+  {0, 10, 20, 200, 0, 0},
+  {0, 10, 20, 200, 0, 0},
+  {0, 10, 20, 200, 0, 0},
+  {0, 10, 20, 200, 0, 0}
 };
-
 
 // Layout functions
 void layoutButtons() {
@@ -89,6 +83,13 @@ void layoutSliders() {
     sliders[i].x = rightEdge - (i + 1) * (sliders[i].w + 20);
   }
 }
+
+// Image data for placeholder (green square 100x100)
+const uint16_t greenSquare[] PROGMEM = {
+  0x07E0, 0x07E0, 0x07E0, 0x07E0, 0x07E0, 0x07E0, 0x07E0, 0x07E0, 0x07E0, 0x07E0,
+  0x07E0, 0x07E0, 0x07E0, 0x07E0, 0x07E0, 0x07E0, 0x07E0, 0x07E0, 0x07E0, 0x07E0,
+  // You can expand this array to include more rows for the square
+};
 
 // Drawing functions
 void drawButton(Button &btn) {
@@ -121,35 +122,12 @@ void flashButton(Button &btn) {
 }
 
 void drawSlider(Slider &s) {
-  // Draw slider background
-  tft.drawRect(s.x, s.y, s.w, s.h, WHITE); // Border
-  tft.fillRect(s.x + 1, s.y + 1, s.w - 2, s.h - 2, BLACK); // Background
-
-  // Calculate thumb position
+  tft.drawRect(s.x, s.y, s.w, s.h, WHITE);
+  tft.fillRect(s.x + 1, s.y + 1, s.w - 2, s.h - 2, BLACK);
   int thumbHeight = 10;
   s.thumbY = map(s.value, 0, 100, s.y + s.h - thumbHeight, s.y);
-
-  // Fill the slider bar (track) with color up to the thumb
-  tft.fillRect(s.x + 2, s.thumbY + thumbHeight, s.w - 4, s.h - (s.thumbY - s.y + thumbHeight), CYAN);
-
-  // Draw the thumb
-  tft.fillRect(s.x + 2, s.thumbY, s.w - 4, thumbHeight, YELLOW);
-
-  // Draw the label manually under the slider
-  if (s.label.length() > 0) {
-    tft.setTextColor(WHITE, BLACK);  // Text color WHITE, background BLACK
-    tft.setTextSize(2);
-
-    // No getTextBounds, just simple center
-    int labelX = s.x - 5; // Little adjust if needed
-    int labelY = s.y + s.h + 10; // Below the slider
-
-    tft.setCursor(labelX, labelY);
-    tft.print(s.label);
-  }
+  tft.fillRect(s.x + 2, s.thumbY, s.w - 4, thumbHeight, CYAN);
 }
-
-
 
 // Menus
 void drawMainMenu() {
@@ -158,18 +136,24 @@ void drawMainMenu() {
   for (int i = 0; i < sizeof(buttons) / sizeof(buttons[0]); i++) {
     drawButton(buttons[i]);
   }
+  // Display the placeholder image (green square)
+  int imageX = 120;  // X coordinate
+  int imageY = 120;  // Y coordinate
+  for (int i = 0; i < 100; i++) {
+    for (int j = 0; j < 100; j++) {
+      tft.drawPixel(imageX + i, imageY + j, pgm_read_word(&greenSquare[i]));
+    }
+  }
 }
 
 void drawSliderMenu() {
   tft.fillScreen(BLACK);
   layoutSliders();
   drawButton(backButton);
-  drawButton(sliderMenuHomeButton);
   for (int i = 0; i < sizeof(sliders) / sizeof(sliders[0]); i++) {
     drawSlider(sliders[i]);
   }
 }
-
 
 // Setup
 void setup() {
@@ -178,7 +162,7 @@ void setup() {
   tft.setRotation(1);
   tft.fillScreen(BLACK);
   Serial.begin(9600);
-  drawMainMenu();
+  drawMainMenu();  // Display the main menu and image
 }
 
 // Touch Loop
@@ -228,13 +212,6 @@ void loop() {
         drawMainMenu();
         return;
       }
-      if (x > sliderMenuHomeButton.x && x < sliderMenuHomeButton.x + sliderMenuHomeButton.w && y > sliderMenuHomeButton.y && y < sliderMenuHomeButton.y + sliderMenuHomeButton.h) {
-       flashButton(sliderMenuHomeButton);
-        Serial.println("Action: SWITCHAUDIO");
-      return;
-      }
     }
   }
 }
-
-
