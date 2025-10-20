@@ -168,6 +168,7 @@ elif "slider 4" in cmd.lower():
 
 https://github.com/user-attachments/assets/38e9ef2a-f3b4-417e-8eb3-a289a02de06f
 
+https://github.com/user-attachments/assets/947858c0-65a7-406a-9523-1bcb4dbef635
 
 
 ## 🗺️ Roadmap
