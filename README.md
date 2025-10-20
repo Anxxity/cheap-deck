@@ -178,6 +178,7 @@ https://github.com/user-attachments/assets/38e9ef2a-f3b4-417e-8eb3-a289a02de06f
 - [ ] Profile switching for different applications
 - [ ] RGB LED feedback
 - [ ] Wireless connectivity (ESP32 version)
+- [ ] a web configaration for creating button and layout (ESP32 version)
 
 ## 🤝 Contributing
 
