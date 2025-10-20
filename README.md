@@ -1,4 +1,4 @@
-![IMG_20250507_224741878](https://github.com/user-attachments/assets/aa530617-dda5-44c8-bb6c-a26063da49c6)# Cheap Deck (code will be updated soon..)
+# Cheap Deck (code will be updated soon..)
 
 Cheap Deck is a low-cost alternative to the Stream Deck, built using an Arduino Uno and a TFT touchscreen, with a total cost of around ₹1000.
 It provides a simple touchscreen interface for controlling your PC, automating tasks, and launching applications — all without expensive hardware.
@@ -66,4 +66,4 @@ A Python script running on the computer reads these serial messages and executes
 This project is licensed under the MIT License.
 You are free to use, modify, and distribute it with attribution.
 
-![Uploading IMG_20250507_224741878.jpg…]()
+![IMG_20250507_224741878](https://github.com/user-attachments/assets/aa530617-dda5-44c8-bb6c-a26063da49c6)
