@@ -1,73 +1,206 @@
-# Cheap Deck (code will be updated soon..)
+# 🎮 Cheap Deck
 
-Cheap Deck is a low-cost alternative to the Stream Deck, built using an Arduino Uno and a TFT touchscreen, with a total cost of around ₹1000.
-It provides a simple touchscreen interface for controlling your PC, automating tasks, and launching applications — all without expensive hardware.
+A low-cost alternative to the Elgato Stream Deck, built using an Arduino Uno and a TFT touchscreen for around **₹1000** (~$12 USD). Control your PC with a customizable touchscreen interface — perfect for streamers, content creators, and productivity enthusiasts on a budget.
 
-## Features
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> Touchscreen interface with multiple customizable buttons
+## ✨ Features
 
-> Serial communication between Arduino and PC
+- **📱 Touchscreen Interface** - Multiple customizable buttons with visual feedback
+- **🎚️ Volume Control** - Individual app volume sliders (System, Browser, Discord, etc.)
+- **⌨️ Keyboard Shortcuts** - Send custom hotkeys and key combinations
+- **🎬 Media Controls** - Play/pause, next/previous track controls
+- **🔄 Real-time Feedback** - Volume levels displayed on the Arduino screen
+- **💰 Budget-Friendly** - Total cost under ₹1200 with readily available components
+- **🔧 Fully Customizable** - Easy to modify buttons, actions, and layouts
 
-> Control PC functions through Python scripts
+## 🎯 How It Works
 
-> Launch applications, send keyboard shortcuts, or control OBS
+Cheap Deck uses a two-part system:
 
-> Compact, lightweight, and affordable
+1. **Arduino + TFT Display**: Provides a touchscreen interface with buttons and sliders. When touched, it sends serial commands to the PC.
+2. **Python Script**: Runs on your PC, listens for serial commands, and executes corresponding actions (keyboard shortcuts, volume control, app launching, etc.).
 
-## How It Works
+The Arduino and PC communicate via USB serial connection, making it plug-and-play with no additional hardware required.
 
-Cheap Deck uses an Arduino Uno connected to a TFT display (MCUFRIEND_kbv).
-When a button on the touchscreen is pressed, the Arduino sends a serial command to the computer.
-A Python script running on the computer reads these serial messages and executes corresponding actions, such as opening programs or simulating keypresses.
+## 🛠️ Components
 
-# Components
-| Component | Model | Approx. Cost (₹) | link |
-|:------------|:-------------:|-------------:|-------------:|
-| Arduino Uno | Generic | 324 | https://www.amazon.in/s?k=ardiuno+uno |
-| TFT LCD Display	2.4 | touch | 476 |https://www.amazon.in/s?k=2.4+inch+touch+screen+tft+display+shield+for+arduino+uno |
-| USB Cable | Type-B | 122 | https://www.amazon.in/s?k=USB+Cable+Type-B |
-| Jumper Wires |  | 189 | https://www.amazon.in/s?k=jumber+wire |
-| Total |  | 1111  | |
+| Component | Model | Approx. Cost (₹) | Link |
+|:----------|:------|:-----------------|:-----|
+| Arduino Uno | Generic | ₹324 | [Amazon India](https://www.amazon.in/s?k=arduino+uno) |
+| TFT LCD Display | 2.4" Touch Shield | ₹476 | [Amazon India](https://www.amazon.in/s?k=2.4+inch+touch+screen+tft+display+shield+for+arduino+uno) |
+| USB Cable | Type-B | ₹122 | [Amazon India](https://www.amazon.in/s?k=USB+Cable+Type-B) |
+| Jumper Wires | Optional | ₹189 | [Amazon India](https://www.amazon.in/s?k=jumper+wire) |
+| **Total** | | **₹1111** | |
 
+> **Note**: Jumper wires are optional if your TFT display is a shield that plugs directly into the Arduino.
 
+## 📋 Prerequisites
 
-# Software Requirements
+### Hardware
+- Arduino Uno (or compatible board)
+- 2.4" TFT LCD Touch Display (MCUFRIEND_kbv compatible)
+- USB Type-B cable
+- Windows PC (for the Python script)
 
-> Arduino IDE
+### Software
+- **Arduino IDE** - [Download here](https://www.arduino.cc/en/software)
+- **Python 3.7+** - [Download here](https://www.python.org/downloads/)
+- **NirCmd** (optional, for advanced system control) - [Download here](https://www.nirsoft.net/utils/nircmd.html)
 
-> Python 3
+## 🚀 Installation
 
-## Setup
+### 1. Arduino Setup
 
-1. Upload Arduino Code
+1. **Install Required Libraries** in Arduino IDE:
+   - `MCUFRIEND_kbv` (for TFT display)
+   - `Adafruit_GFX` (for graphics)
+   - `TouchScreen` (for touch input)
+   
+   Go to **Sketch → Include Library → Manage Libraries** and search for each library.
 
-2. Open the provided Arduino sketch in the Arduino IDE.
+2. **Upload the Arduino Code**:
+   ```bash
+   # Open arduino/arduino.ino in Arduino IDE
+   # Select your board: Tools → Board → Arduino Uno
+   # Select your COM port: Tools → Port → COMx
+   # Click Upload
+   ```
 
-3. Ensure the display driver (e.g., MCUFRIEND_kbv) matches your hardware.
+3. **Verify the Display**: After uploading, you should see the main menu with buttons on the TFT screen.
 
-4. Upload the code to the Arduino Uno.
+### 2. Python Setup
 
-5. Run the Python Script on PC
+1. **Clone or Download** this repository:
+   ```bash
+   git clone https://github.com/Anxxity/cheap-deck.git
+   cd cheap-deck/pc
+   ```
 
-6. Connect the Arduino to your PC via USB.
+2. **Install Python Dependencies**:
+   ```bash
+   pip install -r req.txt
+   ```
 
+3. **Configure COM Port**:
+   Open `cheapdeck.py` and update the COM port to match your Arduino:
+   ```python
+   mega = serial.Serial('COM3', 9600)  # Change COM3 to your port
+   ```
+   
+   > **Tip**: Check your COM port in Arduino IDE under **Tools → Port**
 
-7. Run the cheapdeck.py script.
+4. **Run the Script**:
+   ```bash
+   python cheapdeck.py
+   ```
 
-8. It will listen for serial messages from the Arduino and perform actions.
+## 🎮 Usage
 
-## Customize
+### Main Menu
+The main screen displays 8 customizable buttons:
+- **PLAY** - Sends 'K' key (YouTube play/pause)
+- **PAUSE** - Toggles system mute
+- **NEXT** - Sends 'L' key (YouTube skip forward)
+- **BACK** - Sends 'J' key (YouTube skip backward)
+- **MUTE** - Sends F13 key (custom hotkey)
+- **DEF** - Sends Ctrl+Shift+Alt+D (custom hotkey)
+- **SLIDER** - Opens the volume control menu
 
-> Modify the Arduino layout for different button designs.
+### Slider Menu
+Access volume controls for different applications:
+- **Slider 1** - Brave Browser volume
+- **Slider 2** - Discord volume
+- **Slider 3** - System volume
+- **HOME Button** - Return to main menu
 
-> Edit the Python script to change what each button does.
+Volume levels are displayed in real-time on the Arduino screen.
 
-This project is licensed under the MIT License.
-You are free to use, modify, and distribute it with attribution.
+## ⚙️ Customization
 
-## Preview
+### Modifying Buttons (Arduino)
+
+Edit `arduino/arduino.ino` to change button labels, colors, and layout:
+
+```cpp
+Button buttons[] = {
+  {0, 0, 80, 60, "PLAY",   GREEN, false},
+  {0, 0, 80, 60, "CUSTOM", BLUE,  false},  // Add your button
+  // ... more buttons
+};
+```
+
+### Modifying Actions (Python)
+
+Edit `pc/cheapdeck.py` to change what each button does:
+
+```python
+if cmd == "Action: PLAY":
+    pyautogui.press('K')  # Change to any key or hotkey
+elif cmd == "Action: CUSTOM":
+    subprocess.Popen(["notepad.exe"])  # Launch an application
+```
+
+### Adding New Applications to Volume Control
+
+```python
+# In the main loop
+app_vol = get_volume_by_name("YourApp")  # e.g., "Spotify"
+send_volume("APP", app_vol)
+
+# In the command handler
+elif "slider 4" in cmd.lower():
+    set_app_volume(value, app_name="YourApp.exe")
+```
+
+## 🐛 Troubleshooting
+
+| Issue | Solution |
+|:------|:---------|
+| **Arduino not detected** | Check USB cable, install CH340 drivers if needed |
+| **Display not working** | Verify TFT shield is properly seated, check library compatibility |
+| **Python script errors** | Ensure all dependencies are installed: `pip install -r req.txt` |
+| **Wrong COM port** | Check Arduino IDE → Tools → Port, update `cheapdeck.py` |
+| **Volume control not working** | Run Python script as Administrator |
+| **Buttons not responding** | Calibrate touch screen values in `arduino.ino` (TS_LEFT, TS_RT, etc.) |
+
+## 📸 Preview
 
 https://github.com/user-attachments/assets/38e9ef2a-f3b4-417e-8eb3-a289a02de06f
 
 ![IMG_20250507_224741878](https://github.com/user-attachments/assets/aa530617-dda5-44c8-bb6c-a26063da49c6)
+
+## 🗺️ Roadmap
+
+- [ ] Add more button layouts and themes
+- [ ] Support for macOS and Linux
+- [ ] Web-based configuration interface
+- [ ] Profile switching for different applications
+- [ ] RGB LED feedback
+- [ ] Wireless connectivity (ESP32 version)
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+- Report bugs
+- Suggest new features
+- Submit pull requests
+- Improve documentation
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+You are free to use, modify, and distribute this project with attribution.
+
+## 🙏 Acknowledgments
+
+- Inspired by the Elgato Stream Deck
+- Built with [MCUFRIEND_kbv](https://github.com/prenticedavid/MCUFRIEND_kbv) library
+- Uses [pycaw](https://github.com/AndreMiras/pycaw) for Windows audio control
+
+## 📧 Contact
+
+Created by [@Anxxity](https://github.com/Anxxity)
+
+If you found this project helpful, consider giving it a ⭐!
