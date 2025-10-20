@@ -66,4 +66,8 @@ A Python script running on the computer reads these serial messages and executes
 This project is licensed under the MIT License.
 You are free to use, modify, and distribute it with attribution.
 
+## Preview
+
+https://github.com/user-attachments/assets/38e9ef2a-f3b4-417e-8eb3-a289a02de06f
+
 ![IMG_20250507_224741878](https://github.com/user-attachments/assets/aa530617-dda5-44c8-bb6c-a26063da49c6)
