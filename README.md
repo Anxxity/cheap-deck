@@ -153,6 +153,94 @@ elif "slider 4" in cmd.lower():
     set_app_volume(value, app_name="YourApp.exe")
 ```
 
+``` 
+{
+  "_comment": "Cheap Deck Configuration Example - Copy this to config.json and customize",
+  
+  "serial": {
+    "port": "COM7",
+    "baud_rate": 9600,
+    "timeout": 1.0
+  },
+  
+  "volume": {
+    "update_interval": 1.0,
+    "applications": {
+      "slider_1": {
+        "name": "Brave Browser",
+        "process": "brave.exe"
+      },
+      "slider_2": {
+        "name": "Discord",
+        "process": "Discord.exe"
+      },
+      "slider_3": {
+        "name": "System",
+        "process": null
+      },
+      "slider_4": {
+        "name": "Spotify",
+        "process": "Spotify.exe",
+        "_comment": "Example: Add more apps as needed"
+      }
+    }
+  },
+  
+  "buttons": {
+    "PLAY": {
+      "action": "key",
+      "value": "k",
+      "description": "YouTube play/pause"
+    },
+    "PAUSE": {
+      "action": "mute_toggle",
+      "description": "Toggle system mute"
+    },
+    "NEXT": {
+      "action": "key",
+      "value": "l",
+      "description": "YouTube skip forward"
+    },
+    "BACK": {
+      "action": "key",
+      "value": "j",
+      "description": "YouTube skip backward"
+    },
+    "MUTE": {
+      "action": "key",
+      "value": "f13",
+      "description": "Custom F13 hotkey"
+    },
+    "DEF": {
+      "action": "hotkey",
+      "value": ["ctrl", "shift", "alt", "d"],
+      "description": "Custom multi-key hotkey"
+    },
+    "STOP": {
+      "action": "none",
+      "description": "Not configured"
+    },
+    "SLIDER": {
+      "_comment": "This button opens the slider menu - handled internally",
+      "action": "internal",
+      "description": "Open volume slider menu"
+    }
+  },
+  
+  "paths": {
+    "nircmd": "nircmd.exe",
+    "_comment": "Path to nircmd.exe for system control"
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "file": "cheapdeck.log",
+    "_comment": "Logging levels: DEBUG, INFO, WARNING, ERROR, CRITICAL"
+  }
+}
+
+```
+
 ## 🐛 Troubleshooting
 
 | Issue | Solution |
