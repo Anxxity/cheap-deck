@@ -1,0 +1,66 @@
+{
+  "serial": {
+    "port": "COM7",
+    "baud_rate": 9600,
+    "timeout": 1.0
+  },
+  "volume": {
+    "update_interval": 1.0,
+    "applications": {
+      "slider_1": {
+        "name": "Brave Browser",
+        "process": "brave.exe"
+      },
+      "slider_2": {
+        "name": "Discord",
+        "process": "Discord.exe"
+      },
+      "slider_3": {
+        "name": "System",
+        "process": null
+      }
+    }
+  },
+  "buttons": {
+    "PLAY": {
+      "action": "key",
+      "value": "k",
+      "description": "YouTube play/pause"
+    },
+    "PAUSE": {
+      "action": "mute_toggle",
+      "description": "Toggle system mute"
+    },
+    "NEXT": {
+      "action": "key",
+      "value": "l",
+      "description": "YouTube skip forward"
+    },
+    "BACK": {
+      "action": "key",
+      "value": "j",
+      "description": "YouTube skip backward"
+    },
+    "MUTE": {
+      "action": "key",
+      "value": "f13",
+      "description": "Custom F13 hotkey"
+    },
+    "DEF": {
+      "action": "hotkey",
+      "value": ["ctrl", "shift", "alt", "d"],
+      "description": "Custom multi-key hotkey"
+    },
+    "STOP": {
+      "action": "none",
+      "description": "Not configured"
+    }
+  },
+  "paths": {
+    "nircmd": "nircmd.exe"
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "cheapdeck.log"
+  }
+}
