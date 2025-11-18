@@ -173,12 +173,14 @@ https://github.com/user-attachments/assets/947858c0-65a7-406a-9523-1bcb4dbef635
 
 ## 🗺️ Roadmap
 
-- [-] Easy To config 
-- [ ] Add more button layouts and themes
+- [x] Easy To config 
+- [x] Change more button layouts and themes
+- [x] Adding physical slider
+- [ ] RGB LED feedback
+---------------------------------------------------
 - [ ] Support for macOS and Linux
 - [ ] Web-based configuration interface
 - [ ] Profile switching for different applications
-- [ ] RGB LED feedback
 - [ ] Wireless connectivity (ESP32 version)
 - [ ] a web configaration for creating button and layout (ESP32 version)
 
