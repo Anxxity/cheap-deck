@@ -173,7 +173,7 @@ https://github.com/user-attachments/assets/947858c0-65a7-406a-9523-1bcb4dbef635
 
 ## 🗺️ Roadmap
 
-- [ ] Easy To config 
+- [-] Easy To config 
 - [ ] Add more button layouts and themes
 - [ ] Support for macOS and Linux
 - [ ] Web-based configuration interface
