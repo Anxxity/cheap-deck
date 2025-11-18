@@ -46,7 +46,7 @@ The Arduino and PC communicate via USB serial connection, making it plug-and-pla
 ### Software
 - **Arduino IDE** - [Download here](https://www.arduino.cc/en/software)
 - **Python 3.7+** - [Download here](https://www.python.org/downloads/)
-- **NirCmd** (optional, for advanced system control) - [Download here](https://www.nirsoft.net/utils/nircmd.html)
+
 
 ## 🚀 Installation
 
