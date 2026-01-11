@@ -176,8 +176,12 @@ https://github.com/user-attachments/assets/947858c0-65a7-406a-9523-1bcb4dbef635
 - [x] Easy To config 
 - [x] Change more button layouts and themes
 - [x] Adding physical slider
+- [x] adding image for button
 - [ ] RGB LED feedback
 ---------------------------------------------------
+- [ ] support 3.5inch tft dispaly (wip)
+- [ ] a port for esp32 (wip)
+- [ ] a version before physical slider (wip)
 - [ ] Support for macOS and Linux
 - [ ] Web-based configuration interface
 - [ ] Profile switching for different applications
