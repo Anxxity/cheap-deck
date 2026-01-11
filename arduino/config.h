@@ -19,7 +19,11 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-// icon declarations
+// External icon declarations
+extern const uint16_t discord_logo[];
+extern const uint16_t slider_icon[];
+extern const uint16_t gpt_icon[];
+extern const uint16_t deafen_icon[];
 
 //16-bit RGB565 color definitions
 
