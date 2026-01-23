@@ -210,6 +210,37 @@ You are free to use, modify, and distribute this project with attribution.
 - Built with [MCUFRIEND_kbv](https://github.com/prenticedavid/MCUFRIEND_kbv) library
 - Uses [pycaw](https://github.com/AndreMiras/pycaw) for Windows audio control
 
+**Mermaid Live Editor**: [View](https://mermaid.live/view#pako:eNp9UstuwyAQ_BWLc5IP8KFSFKvnSq56gRwIrA0tL2E4WFH-vTjgR5soXGB2h9nZhStilgOqETG9p05Unw0xVVpDvOTA0fMojc3RaZ2s6WSP83YQ55wBw4n5d_VjDMKaRAzeKgV-oyGAugbYD2bTiafTwY0vpE5W62gko0Fas-q04CVVOG9_SS_E2nEIoFeVY-TSFpv4DqqCzhuScwvFOVWqPCHmwbxLBZjlGX0Pz-xkXrXfv5U2SngezUOmdDmFt44fk4vTZ4qrvZzdSuWS9-l8WRU14AyqjEoPq_5crpC3c1luoB3S4DWVPP2yK0FBgAaC6oogDh2NKhB0S6ToOA3QSJreSKM6-Ag7RGOw7WjYjL2NvUB1R9UAt19bm-i1) | [Edit](https://mermaid.live/edit#pako:eNp9UstuwyAQ_BWLc5IP8KFSFKvnSq56gRwIrA0tL2E4WFH-vTjgR5soXGB2h9nZhStilgOqETG9p05Unw0xVVpDvOTA0fMojc3RaZ2s6WSP83YQ55wBw4n5d_VjDMKaRAzeKgV-oyGAugbYD2bTiafTwY0vpE5W62gko0Fas-q04CVVOG9_SS_E2nEIoFeVY-TSFpv4DqqCzhuScwvFOVWqPCHmwbxLBZjlGX0Pz-xkXrXfv5U2SngezUOmdDmFt44fk4vTZ4qrvZzdSuWS9-l8WRU14AyqjEoPq_5crpC3c1luoB3S4DWVPP2yK0FBgAaC6oogDh2NKhB0S6ToOA3QSJreSKM6-Ag7RGOw7WjYjL2NvUB1R9UAt19bm-i1)
+
+```mermaid
+graph TD
+    subgraph Arduino
+        Config[Config.h]
+    end
+
+    subgraph PythonController
+        CheapDeck[cheapdeck.py]
+    end
+
+    subgraph Communication
+        Serial[Serial Communication]
+    end
+
+    subgraph System
+        AudioControl[Audio Control]
+        AppControl[Application Control]
+        ConfigFile[config.json]
+    end
+
+    Config --> Serial
+    CheapDeck --> Serial
+    Serial --> AudioControl
+    Serial --> AppControl
+    CheapDeck --> ConfigFile
+    AudioControl --> SystemVolume[System Volume]
+    AppControl --> AppVolume[Application Volume]
+```
+
 ## 📧 Contact
 
 Created by [@Anxxity](https://github.com/Anxxity)
