@@ -1,20 +1,20 @@
-# 🎮 Cheap Deck
+#  Cheap Deck
 
 A low-cost alternative to the Elgato Stream Deck, built using an Arduino Uno and a TFT touchscreen for around **₹1000** (~$12 USD). Control your PC with a customizable touchscreen interface — perfect for streamers, content creators, and productivity enthusiasts on a budget.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## ✨ Features
+##  Features
 
-- **📱 Touchscreen Interface** - Multiple customizable buttons with visual feedback
-- **🎚️ Volume Control** - Individual app volume sliders (System, Browser, Discord, etc.)
-- **⌨️ Keyboard Shortcuts** - Send custom hotkeys and key combinations
-- **🎬 Media Controls** - Play/pause, next/previous track controls
-- **🔄 Real-time Feedback** - Volume levels displayed on the Arduino screen
-- **💰 Budget-Friendly** - Total cost under ₹1200 with readily available components
-- **🔧 Fully Customizable** - Easy to modify buttons, actions, and layouts
+- ** Touchscreen Interface** - Multiple customizable buttons with visual feedback
+- ** Volume Control** - Individual app volume sliders (System, Browser, Discord, etc.)
+- ** Keyboard Shortcuts** - Send custom hotkeys and key combinations
+- ** Media Controls** - Play/pause, next/previous track controls
+- ** Real-time Feedback** - Volume levels displayed on the Arduino screen
+- ** Budget-Friendly** - Total cost under ₹1200 with readily available components
+- ** Fully Customizable** - Easy to modify buttons, actions, and layouts
 
-## 🎯 How It Works
+##  How It Works
 
 Cheap Deck uses a two-part system:
 
@@ -48,7 +48,7 @@ The Arduino and PC communicate via USB serial connection, making it plug-and-pla
 - **Python 3.7+** - [Download here](https://www.python.org/downloads/)
 
 
-## 🚀 Installation
+##  Installation
 
 ### 1. Arduino Setup
 
@@ -95,7 +95,7 @@ The Arduino and PC communicate via USB serial connection, making it plug-and-pla
    python cheapdeck.py
    ```
 
-## 🎮 Usage
+##  Usage
 
 ### Main Menu
 The main screen displays 8 customizable buttons:
@@ -116,7 +116,7 @@ Access volume controls for different applications:
 
 Volume levels are displayed in real-time on the Arduino screen.
 
-## ⚙️ Customization
+##  Customization
 
 ### Modifying Buttons (Arduino)
 
@@ -153,7 +153,7 @@ elif "slider 4" in cmd.lower():
     set_app_volume(value, app_name="YourApp.exe")
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 | Issue | Solution |
 |:------|:---------|
@@ -171,7 +171,7 @@ https://github.com/user-attachments/assets/38e9ef2a-f3b4-417e-8eb3-a289a02de06f
 https://github.com/user-attachments/assets/947858c0-65a7-406a-9523-1bcb4dbef635
 
 
-## 🗺️ Roadmap
+##  Roadmap
 
 - [x] Easy To config 
 - [x] Change more button layouts and themes
@@ -190,7 +190,7 @@ https://github.com/user-attachments/assets/947858c0-65a7-406a-9523-1bcb4dbef635
 - [ ] Wireless connectivity (ESP32 version)
 - [ ] a web configaration for creating button and layout (ESP32 version)
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Feel free to:
 - Report bugs
@@ -198,20 +198,20 @@ Contributions are welcome! Feel free to:
 - Submit pull requests
 - Improve documentation
 
-## 📄 License
+##  License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 You are free to use, modify, and distribute this project with attribution.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Inspired by the Elgato Stream Deck
 - Built with [MCUFRIEND_kbv](https://github.com/prenticedavid/MCUFRIEND_kbv) library
 - Uses [pycaw](https://github.com/AndreMiras/pycaw) for Windows audio control
 
-**Mermaid Live Editor**: [View](https://mermaid.live/view#pako:eNp9UstuwyAQ_BWLc5IP8KFSFKvnSq56gRwIrA0tL2E4WFH-vTjgR5soXGB2h9nZhStilgOqETG9p05Unw0xVVpDvOTA0fMojc3RaZ2s6WSP83YQ55wBw4n5d_VjDMKaRAzeKgV-oyGAugbYD2bTiafTwY0vpE5W62gko0Fas-q04CVVOG9_SS_E2nEIoFeVY-TSFpv4DqqCzhuScwvFOVWqPCHmwbxLBZjlGX0Pz-xkXrXfv5U2SngezUOmdDmFt44fk4vTZ4qrvZzdSuWS9-l8WRU14AyqjEoPq_5crpC3c1luoB3S4DWVPP2yK0FBgAaC6oogDh2NKhB0S6ToOA3QSJreSKM6-Ag7RGOw7WjYjL2NvUB1R9UAt19bm-i1) | [Edit](https://mermaid.live/edit#pako:eNp9UstuwyAQ_BWLc5IP8KFSFKvnSq56gRwIrA0tL2E4WFH-vTjgR5soXGB2h9nZhStilgOqETG9p05Unw0xVVpDvOTA0fMojc3RaZ2s6WSP83YQ55wBw4n5d_VjDMKaRAzeKgV-oyGAugbYD2bTiafTwY0vpE5W62gko0Fas-q04CVVOG9_SS_E2nEIoFeVY-TSFpv4DqqCzhuScwvFOVWqPCHmwbxLBZjlGX0Pz-xkXrXfv5U2SngezUOmdDmFt44fk4vTZ4qrvZzdSuWS9-l8WRU14AyqjEoPq_5crpC3c1luoB3S4DWVPP2yK0FBgAaC6oogDh2NKhB0S6ToOA3QSJreSKM6-Ag7RGOw7WjYjL2NvUB1R9UAt19bm-i1)
 
+##  Architecture
 ```mermaid
 graph TD
     subgraph Arduino
@@ -241,7 +241,7 @@ graph TD
     AppControl --> AppVolume[Application Volume]
 ```
 
-## 📧 Contact
+##  Contact
 
 Created by [@Anxxity](https://github.com/Anxxity)
 
