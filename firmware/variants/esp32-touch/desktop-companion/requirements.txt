@@ -1,0 +1,13 @@
+# Cheap Deck Requirements
+# Python 3.7+ required
+
+# Serial Communication
+pyserial>=3.5,<4.0
+
+# GUI Automation
+pyautogui>=0.9.53,<1.0
+
+# Windows Audio Control
+pycaw>=20230407
+comtypes>=1.1.14,<2.0
+pypiwin32>=223

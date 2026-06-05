@@ -1,0 +1,120 @@
+{
+  "serial": {
+    "port": "COM5",
+    "baud_rate": 115200,
+    "timeout": 1.0
+  },
+  "volume": {
+    "update_interval": 1.0,
+    "applications": {
+      "slider_1": {
+        "name": "Brave Browser",
+        "process": "brave.exe"
+      },
+      "slider_2": {
+        "name": "Discord",
+        "process": "Discord.exe"
+      },
+      "slider_3": {
+        "name": "System",
+        "process": ""
+      },
+      "slider_4": {
+        "name": "Headphones",
+        "process": ""
+      }
+    }
+  },
+  "buttons": {
+    "PLAY": {
+      "action": "key",
+      "value": "k",
+      "description": "YouTube play/pause"
+    },
+    "system_mute": {
+      "action": "mute_toggle",
+      "value": "",
+      "description": "Toggle system mute"
+    },
+    "NEXT": {
+      "action": "key",
+      "value": "l",
+      "description": "YouTube skip forward"
+    },
+    "BACK": {
+      "action": "key",
+      "value": "j",
+      "description": "YouTube skip backward"
+    },
+    "MUTE": {
+      "action": "key",
+      "value": "f13",
+      "description": "Custom F13 hotkey"
+    },
+    "DEF": {
+      "action": "hotkey",
+      "value": "['ctrl', 'shift', 'alt', 'd']",
+      "description": "Custom multi-key hotkey"
+    },
+    "INV": {
+      "action": "open",
+      "value": "C:/Windows/System32/notepad.exe",
+      "description": "Custom multi-key hotkey"
+    },
+    "ytube": {
+      "action": "openb",
+      "web":"https://https://youtube.com/",
+      "value": "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe",
+      "description": "Custom multi-key hotkey"
+    },
+    "brave": {
+      "action": "openb",
+      "value": "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe",
+      "description": "Custom multi-key hotkey"
+    },
+    "gpt": {
+      "action": "openb",
+      "web":"https://chatgpt.com/",
+      "value": "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe",
+      "description": "Custom multi-key hotkey"
+    },
+    "discord": {
+      "action": "open",
+      "value": "C:/Users/remin/AppData/Local/Discord/Update.exe --processStart Discord.exe",
+      "description": "Custom multi-key hotkey"
+    },
+    "F8": {
+      "action": "hotkey",
+      "value": "['F8']",
+      "description": "Custom multi-key hotkey"
+    },
+    "STOP": {
+      "action": "none",
+      "value": "",
+      "description": "Not configured"
+    },
+    "obs_start": {
+      "action": "hotkey",
+      "value": "['ctrl', 'shift', 'alt', 's','t','a']",
+      "description": "Not configured"
+    },
+     "obs_record": {
+      "action": "hotkey",
+      "value": "['ctrl', 'shift', 'alt', 'r','e','c']",
+      "description": "Not configured"
+    },
+     "obs_stop": {
+      "action": "hotkey",
+      "value": "['ctrl', 'shift', 'alt', 'o','s']",
+      "description": "Not configured"
+    }
+    
+  },
+  "paths": {
+    "nircmd": "nircmd.exe"
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "cheapdeck.log"
+  }
+}

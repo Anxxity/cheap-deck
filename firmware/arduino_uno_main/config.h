@@ -25,19 +25,20 @@ extern const uint16_t slider_icon[];
 extern const uint16_t gpt_icon[];
 extern const uint16_t deafen_icon[];
 
-//16-bit RGB565 color definitions
+// ========== Color Definitions ==========
+// ✅ Correct 16-bit RGB565 color definitions
 
-#define BLACK   0xFFFF  
-#define WHITE   0x0000  
+#define BLACK   0xFFFF  // real white
+#define WHITE   0x0000  // real black
 #define GREY    0x7BEF
-#define RED     0x07FF  
-#define GREEN   0xF81F 
-#define BLUE    0xFFE0  
-#define CYAN    0xF800  
-#define YELLOW  0x001F  
-#define ORANGE  0x02DF 
-#define PURPLE  0x841F 
-#define MAGENTA 0x07E0  
+#define RED     0x07FF  // fixed red
+#define GREEN   0xF81F  // fixed green
+#define BLUE    0xFFE0  // fixed blue
+#define CYAN    0xF800  // fixed cyan
+#define YELLOW  0x001F  // fixed yellow
+#define ORANGE  0x02DF  // fixed orange
+#define PURPLE  0x841F  // fixed purple
+#define MAGENTA 0x07E0  // fixed magenta
 #define BROWN   0x5AEB
 #define PINK    0x07B5
 #define LIME    0xF81F
@@ -48,6 +49,9 @@ extern const uint16_t deafen_icon[];
 #define SILVER  0xC618
 #define GOLD    0x0595
 
+
+
+// ========== BUTTON CONFIGURATION ==========
 // Add or remove buttons here. Each button needs: Label, Color, Action ID, Icon, Icon Width, Icon Height
 // The Action ID is sent to the PC when the button is pressed
 // To add icons: 
@@ -55,19 +59,15 @@ extern const uint16_t deafen_icon[];
 // 2. Declare external reference at top of config.h
 // 3. Update button config: {"LABEL", COLOR, "action_id", icon_array_name, width, height}
 // 4. Use NULL for icon if no icon needed
-
-
 struct ButtonConfig {
-  const char* label;            // label
-  uint16_t color;             // color of button 
-  const char* actionId;      // action id 
+  const char* label;
+  uint16_t color;
+  const char* actionId;
   const uint16_t* icon;  // Pointer to icon data (NULL if no icon)
   int iconWidth;               // Icon width
   int iconHeight;              // Icon height
 };
 
-// buttons in the menu 
-//
 const ButtonConfig BUTTON_CONFIG[] = {
   {"PLAY",   RED,  "PLAY",NULL, 0, 0},     // YouTube play/pause
   {"PAUSE",  RED,    "system_mute",NULL, 0, 0},      // System mute toggle
@@ -75,24 +75,23 @@ const ButtonConfig BUTTON_CONFIG[] = {
   {"NEXT",   RED,   "NEXT",NULL, 0, 0},     // YouTube skip forward
   {"BACK",   RED,  "BACK",NULL, 0, 0},     // YouTube skip backward
   {"MUTE",   ORANGE, "MUTE",NULL, 0, 0},       // F13 hotkey
-  // this open the slider menu it is hard coded
   {"slide",  BLACK,   "open_sliders",slider_icon, 64, 64},     // Open slider menu
-  // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   {"DEF",    BLACK, "DEF",deafen_icon, 64, 64},       // Ctrl+Shift+Alt+D
   {"F8",    BLACK, "F8", NULL, 0, 0},       // Ctrl+Shift+Alt+D
   {"YTUBE",    BLACK, "ytube", NULL, 0, 0},       // Ctrl+Shift+Alt+D
   {"Brave",    BLACK, "brave", gpt_icon, 64, 64},
   {"GPT",    BLACK, "gpt", gpt_icon, 64, 64},
-  {"DISCORD",    BLACK, "discord", discord_logo, 64, 64},
+   {"DISCORD",    BLACK, "discord", discord_logo, 64, 64},
 };
 
-
+// ========== SLIDER CONFIGURATION ==========
+// Add or remove sliders here. Each slider needs: Name, Action ID
+// The Action ID is sent to the PC with the slider value (0-100)
+// Sliders will automatically paginate - only 4 shown per page
 struct SliderConfig {
   const char* name;
   const char* actionId;
 };
-
-
 
 const SliderConfig SLIDER_CONFIG[] = {
   {"Brave",    "slider_1"},      // Brave Browser volume
@@ -102,6 +101,7 @@ const SliderConfig SLIDER_CONFIG[] = {
 
 };
 
+// ========== UI CONFIGURATION ==========
 // Customize the appearance and layout
 #define BUTTONS_PER_PAGE 8         // Number of buttons shown per page
 #define BUTTON_COLS 4              // Number of button columns

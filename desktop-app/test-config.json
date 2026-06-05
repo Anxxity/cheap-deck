@@ -1,0 +1,57 @@
+{
+  "serial": {
+    "port": "COM7",
+    "baud_rate": 9600,
+    "timeout": 1.0
+  },
+  "volume": {
+    "applications": {
+      "slider_1": {
+        "name": "New App",
+        "process": "process.exe"
+      },
+      "slider_2": {
+        "name": "New App",
+        "process": "process.exe"
+      },
+      "slider_3": {
+        "name": "New App",
+        "process": "process.exe"
+      },
+      "slider_4": {
+        "name": "New App",
+        "process": "process.exe"
+      },
+      "slider_5": {
+        "name": "New App",
+        "process": "process.exe"
+      }
+    }
+  },
+  "buttons": {
+    "BTN_1": {
+      "action": "key",
+      "value": "k",
+      "description": "New button"
+    },
+    "BTN_2": {
+      "action": "key",
+      "value": "k",
+      "description": "New button"
+    },
+    "BTN_3": {
+      "action": "key",
+      "value": "k",
+      "description": "New button"
+    },
+    "BTN_4": {
+      "action": "key",
+      "value": "k",
+      "description": "New button"
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "cheapdeck.log"
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "serial": {
+    "port": "COM5",
+    "baud_rate": 115200,
+    "timeout": 1.0
+  },
+  "volume": {
+    "update_interval": 1.0,
+    "applications": {
+      "slider_1": {
+        "name": "Brave Browser",
+        "process": "brave.exe"
+      },
+      "slider_2": {
+        "name": "Discord",
+        "process": "Discord.exe"
+      },
+      "slider_3": {
+        "name": "System",
+        "process": ""
+      },
+      "slider_4": {
+        "name": "Headphones",
+        "process": ""
+      }
+    }
+  },
+  "buttons": {
+    "PLAY": {
+      "action": "key",
+      "value": "k",
+      "description": "YouTube play/pause",
+      "enabled": true
+    },
+    "system_mute": {
+      "action": "mute_toggle",
+      "value": "",
+      "description": "Toggle system mute",
+      "enabled": true
+    },
+    "NEXT": {
+      "action": "key",
+      "value": "l",
+      "description": "YouTube skip forward",
+      "enabled": true
+    },
+    "BACK": {
+      "action": "key",
+      "value": "j",
+      "description": "YouTube skip backward",
+      "enabled": true
+    },
+    "MUTE": {
+      "action": "key",
+      "value": "f13",
+      "description": "Custom F13 hotkey",
+      "enabled": true
+    },
+    "DEF": {
+      "action": "hotkey",
+      "value": "['ctrl', 'shift', 'alt', 'd']",
+      "description": "Custom multi-key hotkey",
+      "enabled": true
+    },
+    "INV": {
+      "action": "open",
+      "value": "C:/Windows/System32/notepad.exe",
+      "description": "Custom multi-key hotkey",
+      "enabled": true
+    },
+    "ytube": {
+      "action": "openb",
+      "web": "https://https://youtube.com/",
+      "value": "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe",
+      "description": "Custom multi-key hotkey",
+      "enabled": true
+    },
+    "brave": {
+      "action": "openb",
+      "value": "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe",
+      "description": "Custom multi-key hotkey",
+      "enabled": true
+    },
+    "gpt": {
+      "action": "openb",
+      "web": "https://chatgpt.com/",
+      "value": "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe",
+      "description": "Custom multi-key hotkey",
+      "enabled": true
+    },
+    "discord": {
+      "action": "open",
+      "value": "C:/Users/remin/AppData/Local/Discord/Update.exe --processStart Discord.exe",
+      "description": "Custom multi-key hotkey",
+      "enabled": true
+    },
+    "F8": {
+      "action": "hotkey",
+      "value": "['F8']",
+      "description": "Custom multi-key hotkey",
+      "enabled": true
+    },
+    "STOP": {
+      "action": "none",
+      "value": "",
+      "description": "Not configured",
+      "enabled": true
+    },
+    "obs_start": {
+      "action": "hotkey",
+      "value": "['ctrl', 'shift', 'alt', 's','t','a']",
+      "description": "Not configured",
+      "enabled": true
+    },
+    "obs_record": {
+      "action": "hotkey",
+      "value": "['ctrl', 'shift', 'alt', 'r','e','c']",
+      "description": "Not configured",
+      "enabled": true
+    },
+    "obs_stop": {
+      "action": "hotkey",
+      "value": "['ctrl', 'shift', 'alt', 'o','s']",
+      "description": "Not configured",
+      "enabled": true
+    }
+  },
+  "paths": {
+    "nircmd": "nircmd.exe"
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "cheapdeck.log"
+  },
+  "folders": {},
+  "root_buttons": [
+    "PLAY",
+    "system_mute",
+    "NEXT",
+    "BACK",
+    "MUTE",
+    "DEF",
+    "INV",
+    "ytube",
+    "brave",
+    "gpt",
+    "discord",
+    "F8",
+    "STOP",
+    "obs_start",
+    "obs_record",
+    "obs_stop"
+  ],
+  "profiles": {},
+  "plugins": [],
+  "firmware": {
+    "board": "Arduino Uno",
+    "fqbn": "arduino:avr:uno",
+    "sketch": "arduino\\esp32\\esp",
+    "upload_before_start": false
+  },
+  "ui": {
+    "theme": {
+      "name": "Reference Dark",
+      "values": {
+        "background": "#0f1117",
+        "panel": "#161b22",
+        "panel_2": "#1d2430",
+        "card": "#111820",
+        "card_hover": "#1b2733",
+        "field": "#0b0e14",
+        "text": "#e6edf3",
+        "muted": "#8b949e",
+        "accent": "#00b4ff",
+        "warn": "#f0c35e"
+      }
+    },
+    "deck": {
+      "cols": 4,
+      "rows": 2,
+      "buttons_per_page": 8
+    }
+  }
+}
